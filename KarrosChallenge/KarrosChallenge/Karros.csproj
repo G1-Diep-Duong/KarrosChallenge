@@ -66,10 +66,11 @@
     <Compile Include="Common\IWebElementExtension.cs" />
     <Compile Include="DataObjects\Record.cs" />
     <Compile Include="Karros.cs" />
+    <Compile Include="PageObjects\EventsPage.cs" />
     <Compile Include="PageObjects\GeneralPage.cs" />
     <Compile Include="PageObjects\MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestCases\Testcases01.cs" />
+    <Compile Include="TestCases\Testcases.cs" />
     <Compile Include="TestCases\Testbase.cs" />
     <Compile Include="TestCases\zSandbox.cs" />
   </ItemGroup>

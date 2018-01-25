@@ -3,6 +3,7 @@ using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Karros.Common;
+using Karros.DataObjects;
 using Karros.TestCases;
 using System.Threading;
 using OpenQA.Selenium.Interactions;
@@ -13,19 +14,13 @@ namespace Karros.PageObjects
     {
         private IWebDriver driver;
 
-
         #region Locators
 
         static readonly By _cboSearchDevice = By.XPath("//span[@id='select2-device_id-container']");
         static readonly By _txtSearchDevice = By.XPath("//input[@class='select2-search__field']");
         static readonly By _btnSearchDevice = By.XPath("//button[@title='Search Device']");
         static readonly By _spantest = By.XPath("//span[@class='glyphicon glyphicon-folder-close']");
-
-
-
-        //table[@id='jqGrid']//tr[4]//input[@value='Events']
-
-
+                
         #endregion
 
         #region Elements
@@ -72,14 +67,29 @@ namespace Karros.PageObjects
             return this;
         }
 
-        public void ClickEventButton(int index)
+        public EventsPage ClickEventButton(int index)
         {
+            EventsPage eventspage = new EventsPage(this.webDriver);
             string DynamicXPath = "//table[@id='jqGrid']//tr["+ (index+1) +"]//input[@value='Events']";
             this.FindElement(By.XPath(DynamicXPath)).Click();
-            
+            return eventspage;
         }
 
+        public Record GetRecordByIndex(int index)
+        {
+            Record record = new Record();
+            string Device = "//table[@id='jqGrid']//tr[" + (index + 1) + "]//td[@aria-describedby='jqGrid_deviceid']";
+            string Vin = "//table[@id='jqGrid']//tr[" + (index + 1) + "]//td[@aria-describedby='jqGrid_obdvin']";
+            string Odometer = "//table[@id='jqGrid']//tr[" + (index + 1) + "]//td[@aria-describedby='jqGrid_obdtrueodometer']";
+            string Insertiontime = "//table[@id='jqGrid']//tr[" + (index + 1) + "]//td[@aria-describedby='jqGrid_insertiontime']";
 
+            record.DeviceID = this.FindElement(By.XPath(Device)).Text;
+            record.Vin = this.FindElement(By.XPath(Vin)).Text.Replace("'"," ").Trim();
+            record.Odometer = this.FindElement(By.XPath(Odometer)).Text;
+            record.Insertiontime = this.FindElement(By.XPath(Insertiontime)).Text;
+
+            return record;
+        }
         #endregion
 
 

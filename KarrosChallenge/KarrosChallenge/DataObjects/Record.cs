@@ -4,33 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KarrosChallenge.DataObjects
+namespace Karros.DataObjects
 {
     public class Record
     {
-        private string DeviceID;
-        public string DeviceIDObj
+        private string _DeviceID;
+        public string DeviceID
         {
-            get { return DeviceID; }
-            set { DeviceID = value; }
+            get { return _DeviceID; }
+            set { _DeviceID = value; }
         }
-        private string Vin;
-        public string VinObj
+        private string _Vin;
+        public string Vin
         {
-            get { return Vin; }
-            set { Vin = value; }
+            get { return _Vin; }
+            set { _Vin = value; }
         }
-        private string odometer;
-        public string odometerObj
+        private string _Odometer;
+        public string Odometer
         {
-            get { return odometer; }
-            set { odometer = value; }
+            get { return _Odometer; }
+            set { _Odometer = value; }
         }
-        private string insertiontime;
-        public string insertiontimeObj
+        private string _Insertiontime;
+        public string Insertiontime
         {
-            get { return insertiontime; }
-            set { insertiontime = value; }
+            get { return _Insertiontime; }
+            set { _Insertiontime = value; }
         }
+
+        public Record() { }
+
+
     }
 }
