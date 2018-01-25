@@ -60,14 +60,9 @@ namespace Karros.PageObjects
 
         public MainPage SearchDeviceByID(string deviceid)
         {
-            //SelectElement CboRepository = new SelectElement(this.CboSearchDevice);
-            //CboRepository.SelectByText(deviceid);
-
-            //CboSearchDevice.Click();
-            //TxtSearchDevice.SendKeys(deviceid);
-
-            //IWebElement objecElement = webDriver.FindElement(By.XPath("//html//body//iframe"));
-            this.webDriver.SwitchTo().Frame(1);
+            CboSearchDevice.Click();
+            TxtSearchDevice.Set(deviceid);
+            TxtSearchDevice.SendKeys(Keys.Enter);
             BtnSearchDevice.Click();
             return this;
         }
