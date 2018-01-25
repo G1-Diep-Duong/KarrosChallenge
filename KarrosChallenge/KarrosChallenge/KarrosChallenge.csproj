@@ -64,6 +64,7 @@
     <Compile Include="Common\CommonMethods.cs" />
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\IWebElementExtension.cs" />
+    <Compile Include="DataObjects\Record.cs" />
     <Compile Include="Karros.cs" />
     <Compile Include="PageObjects\GeneralPage.cs" />
     <Compile Include="PageObjects\MainPage.cs" />

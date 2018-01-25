@@ -21,6 +21,11 @@ namespace Karros.PageObjects
         static readonly By _btnSearchDevice = By.XPath("//button[@title='Search Device']");
         static readonly By _spantest = By.XPath("//span[@class='glyphicon glyphicon-folder-close']");
 
+
+
+        //table[@id='jqGrid']//tr[4]//input[@value='Events']
+
+
         #endregion
 
         #region Elements
@@ -67,7 +72,12 @@ namespace Karros.PageObjects
             return this;
         }
 
-
+        public void ClickEventButton(int index)
+        {
+            string DynamicXPath = "//table[@id='jqGrid']//tr["+ (index+1) +"]//input[@value='Events']";
+            this.FindElement(By.XPath(DynamicXPath)).Click();
+            
+        }
 
 
         #endregion
