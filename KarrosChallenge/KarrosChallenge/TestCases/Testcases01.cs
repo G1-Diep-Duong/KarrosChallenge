@@ -9,11 +9,14 @@ namespace Karros.TestCases
     [TestClass]
     public class Karros : Testbase
     {
-       
+
         [TestMethod]
         public void TC01()
         {
             MainPage mainpage = new MainPage(webDriver);
+            mainpage.Open();
+
+
         }
 
 

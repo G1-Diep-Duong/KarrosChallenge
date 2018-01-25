@@ -13,22 +13,20 @@ namespace Karros.PageObjects
     {
         private IWebDriver driver;
 
-        internal MainPage Open()
-        {
-            throw new NotImplementedException();
-        }
-
 
         #region Locators
 
-
+        static readonly By _cboSearchDevice = By.XPath("//span[@id='select2-device_id-container']");
 
 
         #endregion
 
         #region Elements
 
-
+        public IWebElement CboSearchDevice
+        {
+            get { return FindElement(_cboSearchDevice, Constant.DefaultTimeout); }
+        }
 
         #endregion
 
@@ -39,7 +37,17 @@ namespace Karros.PageObjects
             this.driver = webDriver;
         }
 
+
+
+        public MainPage Open()
+        {
+            webDriver.Navigate().GoToUrl(Constant.HomePageURL);
+            return this;
+        }
+
         #endregion
+
+
 
     }
 }

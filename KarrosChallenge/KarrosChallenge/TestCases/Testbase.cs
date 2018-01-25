@@ -45,7 +45,7 @@ namespace Karros.TestCases
 
             // --- Old Settings ----------------------------------------------------------
             //Start Firefox browser and maximize window
-            System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", @"F:\\Source\\geckodriver-v0.19.1-win64\\geckodriver.exe");
+            // System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", @"F:\\Source\\geckodriver-v0.19.1-win64\\geckodriver.exe");
             webDriver = new FirefoxDriver();
             webDriver.Manage().Window.Maximize();
             //webDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(1));           
@@ -69,13 +69,13 @@ namespace Karros.TestCases
         /// Tests the cleanup method.
         /// </summary>
         /// <author>Diep Duong</author>
-        /// <datetime>6/7/2016 - 00:44</datetime>
+        /// <datetime>01/25/2018 - 00:44</datetime>
         [TestCleanup]
         public void TestCleanupMethod()
         {
             Console.WriteLine("- Run Test Cleanup");
             // CLose browser
-            webDriver.Quit();
+            //// webDriver.Quit();
             Console.WriteLine("TC finishes in {0} seconds", stopWatch.ElapsedMilliseconds / 1000);
             stopWatch.Stop();
 
