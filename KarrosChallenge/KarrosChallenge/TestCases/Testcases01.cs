@@ -15,6 +15,14 @@ namespace Karros.TestCases
         {
             MainPage mainpage = new MainPage(webDriver);
             mainpage.Open();
+            //mainpage.SearchDeviceByID("164800178");
+            
+            mainpage.Spantest.Click();
+
+            webDriver.SwitchTo().Frame(0);
+            //.FindElement(By.XPath("//button[@title='Search Device']")).Click();
+
+            mainpage.BtnSearchDevice.Click();
 
 
         }

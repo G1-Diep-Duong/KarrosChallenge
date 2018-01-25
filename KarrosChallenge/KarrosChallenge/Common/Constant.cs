@@ -10,7 +10,7 @@ namespace Karros.Common
 
         public const bool DebugMode = false;
         public const string HomePageURL = "http://34.235.141.243:8080/interview/";
-        public const int DefaultTimeout = 10;
+        public const int DefaultTimeout = 30;
         public const string DefaultLogFolder = @"D:\Karros";
 
 
