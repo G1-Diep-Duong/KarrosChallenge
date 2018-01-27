@@ -19,15 +19,17 @@ namespace Karros.PageObjects
         static readonly By _cboSearchDevice = By.XPath("//span[@id='select2-device_id-container']");
         static readonly By _txtSearchDevice = By.XPath("//input[@class='select2-search__field']");
         static readonly By _btnSearchDevice = By.XPath("//button[@title='Search Device']");
-        static readonly By _spantest = By.XPath("//span[@class='glyphicon glyphicon-folder-close']");
-                
+        static readonly By _btnComplexSearch = By.XPath("//td[@id='search_jqGrid_top']//span");
+
+        //td[@id='search_jqGrid_top']//span
+
         #endregion
 
         #region Elements
 
-        public IWebElement Spantest
+        public IWebElement BtnComplexSearch
         {
-            get { return FindElement(_spantest, Constant.DefaultTimeout); }
+            get { return FindElement(_btnComplexSearch, Constant.DefaultTimeout); }
         }
 
         public IWebElement CboSearchDevice

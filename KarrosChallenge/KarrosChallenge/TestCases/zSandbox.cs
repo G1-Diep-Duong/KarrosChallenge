@@ -9,7 +9,7 @@ namespace Karros.TestCases
     [TestClass]
     public class zSandbox : Testbase
     {
-        [TestMethod]
+        //[TestMethod]
         public void zSandboxTest1()
         {
         
