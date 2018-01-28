@@ -42,40 +42,17 @@ namespace Karros.TestCases
 
             Console.WriteLine("- Run Test Initialize");
             stopWatch.Start();
-
-            // --- Old Settings ----------------------------------------------------------
-            //Start Firefox browser and maximize window
-            // System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", @"F:\\Source\\geckodriver-v0.19.1-win64\\geckodriver.exe");
+            
             webDriver = new FirefoxDriver();
             webDriver.Manage().Window.Maximize();
-            //webDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(1));           
-            //----------------------------------------------------------
-
-            // --- Remote Settings --------
-            //DesiredCapabilities capabilities = DesiredCapabilities.Firefox();
-            //capabilities.SetCapability(CapabilityType.BrowserName, "firefox");
-            //capabilities.SetCapability(CapabilityType.Version,"42");
-            //capabilities.SetCapability(CapabilityType.Platform, new Platform(PlatformType.Windows));
-
-            //webDriver = new RemoteWebDriver(new Uri("http://localhost:8888/wd/hub"), capabilities, TimeSpan.FromSeconds(180));
-            //webDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(180)); 
-            //webDriver.Manage().Window.Maximize();
-            //--------------------------------------------------
-
-
         }
-
-        /// <summary>
-        /// Tests the cleanup method.
-        /// </summary>
-        /// <author>Diep Duong</author>
-        /// <datetime>01/25/2018 - 00:44</datetime>
+            
         [TestCleanup]
         public void TestCleanupMethod()
         {
             Console.WriteLine("- Run Test Cleanup");
             // CLose browser
-            //// webDriver.Quit();
+            webDriver.Quit();
             Console.WriteLine("TC finishes in {0} seconds", stopWatch.ElapsedMilliseconds / 1000);
             stopWatch.Stop();
 
