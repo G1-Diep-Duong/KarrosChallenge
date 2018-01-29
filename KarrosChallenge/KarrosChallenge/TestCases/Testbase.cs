@@ -43,8 +43,8 @@ namespace Karros.TestCases
             Console.WriteLine("- Run Test Initialize");
             stopWatch.Start();
             
-            webDriver = new FirefoxDriver();
-            webDriver.Manage().Window.Maximize();
+            //webDriver = new FirefoxDriver();
+            //webDriver.Manage().Window.Maximize();
         }
             
         [TestCleanup]
@@ -52,6 +52,7 @@ namespace Karros.TestCases
         {
             Console.WriteLine("- Run Test Cleanup");
             // CLose browser
+            Console.WriteLine("CLose browser.");
             webDriver.Quit();
             Console.WriteLine("TC finishes in {0} seconds", stopWatch.ElapsedMilliseconds / 1000);
             stopWatch.Stop();
