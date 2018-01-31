@@ -7,6 +7,7 @@ using Karros.DataObjects;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.IE;
 
 namespace Karros.TestCases
 {
@@ -40,11 +41,11 @@ namespace Karros.TestCases
             Assert.AreEqual(ExpectedResult, ActualResult);
         }
 
-        //[TestMethod]
-        public void TC01Chrome()
+        [TestMethod]
+        public void TC01IE()
         {
-            Console.WriteLine("TC01 - Chrome - Verify that the data displayed on the Events page is the same data of the row that the button was clicked");
-            webDriver = new ChromeDriver(@"D:\chromedriver_win32");
+            Console.WriteLine("TC01 - InternetExplorer - Verify that the data displayed on the Events page is the same data of the row that the button was clicked");
+            webDriver = new InternetExplorerDriver();
             webDriver.Manage().Window.Maximize();
 
             MainPage mainpage = new MainPage(webDriver);
@@ -60,6 +61,24 @@ namespace Karros.TestCases
             Assert.AreEqual(ExpectedResult, ActualResult);
         }
 
+        [TestMethod]
+        public void TC01Chrome()
+        {
+            Console.WriteLine("TC01 - Chrome - Verify that the data displayed on the Events page is the same data of the row that the button was clicked");
+            webDriver = new ChromeDriver();
+            webDriver.Manage().Window.Maximize();
 
+            MainPage mainpage = new MainPage(webDriver);
+            Record Record3rd = new Record();
+            mainpage.Open();
+            webDriver.SwitchTo().Frame(0);
+            Record3rd = mainpage.SearchDeviceByID("164800178").GetRecordByIndex(3);
+            mainpage.ClickEventButton(3);
+            webDriver.SwitchTo().Window(webDriver.WindowHandles[1].ToString());
+            EventsPage eventspage = new EventsPage(webDriver);
+            string ActualResult = eventspage.LblRecoverData.Text;
+            string ExpectedResult = "deviceid: " + Record3rd.DeviceID + "; obdvin: " + Record3rd.Vin + "; insertiontime: " + Record3rd.Insertiontime + "; odometer: " + Record3rd.Odometer + ";";
+            Assert.AreEqual(ExpectedResult, ActualResult);
+        }
     }
 }
